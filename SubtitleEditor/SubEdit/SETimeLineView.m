@@ -320,10 +320,18 @@
     _dragged = YES;
     
     CGFloat e = self.currentTime - ((double)theEvent.deltaX / 1000.0 * (double)SPEED_SCALE);
-
+    
+    SEMoviewView* movieView = [SESingleton shared].movieView;
+    
+    float movieDuration = CMTimeGetSeconds(movieView.player.currentItem.asset.duration);
+    
     if(e < 0.0)
     {
         self.currentTime = 0.0;
+    }
+    else if(e > movieDuration)
+    {
+        self.currentTime = movieDuration;
     }
     else
     {
