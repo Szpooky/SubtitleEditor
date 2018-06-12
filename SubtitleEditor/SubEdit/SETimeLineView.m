@@ -427,7 +427,7 @@
 
 - (NSRect)makeNodeFrame:(SENode*)node
 {
-    NSRect retVal = NSMakeRect(0.0, 0.0, 100.0, BOX_HEIGHT);
+    NSRect retVal;
     
     double start = node.startTime - (double)_currentTime;
     double end = node.endTime - node.startTime;
